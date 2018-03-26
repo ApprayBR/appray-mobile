@@ -7,6 +7,7 @@ export const styles = StyleSheet.create({
     container: {
       flex: 1,
       marginTop: metrics.padding,
+      alignItems: 'center',
     },
     upper: {
       flexDirection: 'row',
@@ -32,16 +33,40 @@ export const styles = StyleSheet.create({
     shortDescription: {
       marginTop: 5,
     },
-    bottom: {
+    descriptionContainer: {
       marginTop: metrics.padding,
       alignItems: 'center',
-    },
-    trailer: {
-      marginTop: 60,
-      alignItems: 'flex-start',
+      height: '30%',
     },
     description: {
       margin: metrics.padding,
       textAlign: 'justify',
     },
+    pray: {
+      marginTop: metrics.padding,
+      backgroundColor: 'transparent',
+    },
+    prayingContainer: {
+      alignItems: 'center',
+      marginTop: metrics.padding,
+    },
+    prayingImage: {
+      width: 50,
+      height: 50,
+      alignItems: 'center',
+    },
+    prayingTextContainer: {
+      marginTop: 10,
+      paddingTop: 20,
+      paddingBottom: 20,
+      backgroundColor: colors.primary,
+      borderRadius: 10,
+      width: '140%',
+    },
+    prayingText: {
+      textAlign: 'center',
+      alignItems: 'center',
+      color: 'white',
+      fontWeight: 'bold',
+    }
   });

@@ -14,7 +14,11 @@ class PrayerRequestsListContainer extends Component {
   }
   
   render() {
-    return <PrayerRequestsList requests={ this.props.requests } isLoading={ this.props.isLoading } hasErrored={ this.props.hasErrored } navigation={ this.props.navigation } fetchNextPrayerRequestsPageFromAPI= { this.props.fetchNextPrayerRequestsPageFromAPI } />;
+    return <PrayerRequestsList requests={ this.props.requests } 
+                               isLoading={ this.props.isLoading } 
+                               hasErrored={ this.props.hasErrored } 
+                               navigation={ this.props.navigation } 
+                               fetchNextPrayerRequestsPageFromAPI={ this.props.fetchNextPrayerRequestsPageFromAPI } />;
   }
 }
 

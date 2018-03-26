@@ -1,4 +1,4 @@
-import { ALL_PRAYER_REQUESTS, FILTER_BY_TITLE, REQUEST_HAS_ERRORED, REQUEST_IS_LOADING, REQUEST_FETCH_DATA_SUCCESS, GET_NEXT_PRAYER_REQUESTS_PAGE_FROM_API } from './types';
+import { ALL_PRAYER_REQUESTS, FILTER_BY_TYPE, REQUEST_HAS_ERRORED, REQUEST_IS_LOADING, REQUEST_FETCH_DATA_SUCCESS, GET_NEXT_PRAYER_REQUESTS_PAGE_FROM_API } from './types';
 import { APPRAY_API_URL } from 'appray/src/settings';
 
 // Action creators:
@@ -25,7 +25,7 @@ export function requestHasErrored(bool) {
 
 export const filterPrayerRequests = (text) => {
     return {
-        type: FILTER_BY_TITLE,
+        type: FILTER_BY_TYPE,
         text_filter: text,
     }
 };

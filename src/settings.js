@@ -1,4 +1,4 @@
-export const APPRAY_API_URL = 'http://www.mocky.io/v2/5a6ba76531000008301b8b59';
+export const APPRAY_API_URL = 'http://www.mocky.io/v2/5ab85b943400007e0067ace6';
 
 export const FACEBOOK_APP = {
     ID: '370859849993011',

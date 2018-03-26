@@ -59,10 +59,10 @@ const MainNavigator =  TabNavigator ({
     },
     Requests: {
         screen: StackNavigator({
-            MyRequestsList: {
+            MyPrayerRequestsList: {
                 screen: HomeScreen
             },
-            MyRequestDetail: {
+            MyPrayerRequestDetail: {
                 screen: PrayerRequestDetailScreen
             },
         },

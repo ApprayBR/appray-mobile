@@ -1,7 +1,7 @@
 import Reactotron from 'reactotron-react-native';
 import axios from 'axios';
 
-import { REQUEST_IS_LOADING, REQUEST_FETCH_DATA_SUCCESS, REQUEST_HAS_ERRORED, FILTER_BY_TITLE, GET_NEXT_PRAYER_REQUESTS_PAGE_FROM_API  } from 'appray/src/actions/types';  
+import { REQUEST_IS_LOADING, REQUEST_FETCH_DATA_SUCCESS, REQUEST_HAS_ERRORED, FILTER_BY_TYPE, GET_NEXT_PRAYER_REQUESTS_PAGE_FROM_API  } from 'appray/src/actions/types';  
 import { APPRAY_API_URL } from 'appray/src/settings';
 import { requestFetchDataSuccess, requestHasErrored, requestIsLoading } from 'appray/src/actions/prayerRequests';
 
@@ -10,7 +10,7 @@ initialState = {
     items: [],
     all_items: [],
     hasErrored: false,
-    title_filter: "",
+    type_filter: "",
     page: 0,
 }
 export default function prayerRequestReducer(state=initialState, action) {
@@ -31,7 +31,7 @@ export default function prayerRequestReducer(state=initialState, action) {
                 ...state,
                 hasErrored: action.hasErrored,
             };
-        case FILTER_BY_TITLE:
+        case FILTER_BY_TYPE:
             if (!action.text_filter) {
                 return {
                     ...state,
@@ -39,7 +39,7 @@ export default function prayerRequestReducer(state=initialState, action) {
                 };
             }
             const requests = state.all_items ? state.all_items.reduce(function (res, request) {
-                if (request.title.toLowerCase().indexOf(action.text_filter.toLowerCase()) >= 0 || 
+                if (request.type.toLowerCase().indexOf(action.text_filter.toLowerCase()) >= 0 || 
                 request.description.toLowerCase().indexOf(action.text_filter.toLowerCase()) >= 0) {
                     res.push(request);
                 }

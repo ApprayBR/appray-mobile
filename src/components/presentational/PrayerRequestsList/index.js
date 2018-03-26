@@ -38,7 +38,7 @@ export default class PrayerRequestsList extends Component {
               <View style={ styles.row }>
                 <Image source={{ uri: item.image }}  style={ styles.image } /> 
                 <View style={ styles.textsContainer }>
-                  <Text style={ styles.title }> { item.title } </Text> 
+                  <Text style={ styles.title }> { item.type } </Text> 
                   <Text style={ styles.description }> { item.short_description }</Text>
                 </View>
               </View>
