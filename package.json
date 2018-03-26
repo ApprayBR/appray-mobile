@@ -1,0 +1,43 @@
+{
+  "name": "appray",
+  "version": "0.1.0",
+  "private": true,
+  "devDependencies": {
+    "@expo/vector-icons": "^6.2.2",
+    "babel-preset-react-native-stage-0": "^1.0.1",
+    "generator-rn-toolbox": "^3.2.1",
+    "jest-expo": "23.0.0",
+    "react-test-renderer": "16.0.0",
+    "reactotron-react-native": "^1.14.0",
+    "reactotron-redux": "^1.13.0",
+    "yo": "^2.0.0"
+  },
+  "scripts": {
+    "start": "react-native start",
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "test": "node node_modules/jest/bin/jest.js --watch"
+  },
+  "jest": {
+    "preset": "jest-expo"
+  },
+  "dependencies": {
+    "axios": "^0.17.1",
+    "expo": "^25.0.0",
+    "react": "16.0.0",
+    "react-native": "^0.51.0",
+    "react-native-audio": "^4.0.0",
+    "react-native-elements": "^0.19.0",
+    "react-native-fbsdk": "^0.7.0",
+    "react-native-sound": "^0.10.9",
+    "react-native-storage": "^0.2.2",
+    "react-native-vector-icons": "^4.5.0",
+    "react-navigation": "1.0.0-beta.26",
+    "react-redux": "^5.0.6",
+    "react-redux-fetch": "^0.11.1",
+    "redux": "^3.7.2",
+    "redux-logger": "^3.0.6",
+    "redux-promise": "^0.5.3",
+    "redux-thunk": "^2.2.0"
+  }
+}
