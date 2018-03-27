@@ -54,7 +54,7 @@ class UserProfile extends Component {
                                     <Text> { user.church } </Text>
                                 </View> 
                             </View>
-                            <View style={ styles.upperTexts }>
+                            <View style={ styles.upperTextsMyProfile }>
                                 <Text style={ styles.shortDescription }> { user.prayers } </Text>
                             </View>
                         </View>
@@ -81,18 +81,18 @@ class UserProfile extends Component {
                     <Image source={{ uri: user.image }}  style={styles.image} /> 
                     <View style={ styles.textsContainer }>
                         <Text style={ styles.fullName }> { user.full_name } </Text>
-                        <View style={ styles.upperTexts }>
-                            <Text style={ styles.mediumText }> Member since: </Text>
-                            <Text style={ styles.shortDescription }> { user.member_since } </Text>
+                        <View style={ styles.upperTexts}>
+                            <View style={ styles.upperTitleTexts }>
+                                <Text style={ styles.mediumText }> Member since: </Text>
+                                <Text style={ styles.mediumText }> Religion: </Text>
+                                <Text style={ styles.mediumText }> Church: </Text>
+                            </View>
+                            <View style={ styles.upperValueTexts }>
+                                <Text> { user.member_since } </Text>
+                                <Text> { user.religion } </Text>
+                                <Text> { user.church } </Text>
+                            </View> 
                         </View>
-                        <View style={ styles.upperTexts }>
-                            <Text style={ styles.mediumText }> Religion: </Text>
-                            <Text style={ styles.shortDescription }> { user.religion } </Text>
-                        </View> 
-                        <View style={ styles.upperTexts }>
-                            <Text style={ styles.mediumText }> Church: </Text>
-                            <Text style={ styles.shortDescription }> { user.church } </Text>
-                        </View> 
                         <View style={ styles.upperTexts }>
                             <Text style={ styles.shortDescription }> { user.prayers } </Text>
                         </View>

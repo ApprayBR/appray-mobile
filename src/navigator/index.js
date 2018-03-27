@@ -11,7 +11,8 @@ import SignupScreen from 'appray/src/scenes/Signup';
 import SignupEmailScreen from 'appray/src/scenes/SignupEmail';
 import HomeScreen from 'appray/src/scenes/Home';
 import MyProfileScreen from 'appray/src/scenes/Profile/MyProfile';
-import MyPrayerRequests from 'appray/src/scenes/MyRequests';
+import MyPrayerRequestsScreen from 'appray/src/scenes/MyRequests';
+import MyNewPrayerRequestScreen from 'appray/src/scenes/MyNewRequests';
 import PeopleProfileScreen from 'appray/src/scenes/Profile/PeopleProfile';
 import PrayerRequestDetailScreen from 'appray/src/scenes/PrayerRequestDetail';
 import RecordingScreen from 'appray/src/scenes/Recording';
@@ -62,10 +63,13 @@ const MainNavigator =  TabNavigator ({
     Requests: {
         screen: StackNavigator({
             MyPrayerRequestsList: {
-                screen: MyPrayerRequests
+                screen: MyPrayerRequestsScreen
             },
             MyPrayerRequestDetail: {
                 screen: PrayerRequestDetailScreen
+            },
+            MyNewPrayerRequest: {
+                screen: MyNewPrayerRequestScreen
             },
         },
         {
