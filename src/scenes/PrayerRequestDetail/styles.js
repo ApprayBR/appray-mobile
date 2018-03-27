@@ -61,7 +61,7 @@ export const styles = StyleSheet.create({
       paddingBottom: 20,
       backgroundColor: colors.primary,
       borderRadius: 10,
-      width: '140%',
+      width: 200,
     },
     prayingText: {
       textAlign: 'center',

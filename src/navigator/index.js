@@ -10,7 +10,9 @@ import LoginScreen from 'appray/src/scenes/Login';
 import SignupScreen from 'appray/src/scenes/Signup';
 import SignupEmailScreen from 'appray/src/scenes/SignupEmail';
 import HomeScreen from 'appray/src/scenes/Home';
-import ProfileScreen from 'appray/src/scenes/Profile';
+import MyProfileScreen from 'appray/src/scenes/Profile/MyProfile';
+import MyPrayerRequests from 'appray/src/scenes/MyRequests';
+import PeopleProfileScreen from 'appray/src/scenes/Profile/PeopleProfile';
 import PrayerRequestDetailScreen from 'appray/src/scenes/PrayerRequestDetail';
 import RecordingScreen from 'appray/src/scenes/Recording';
 import { metrics, colors } from 'appray/src/styles';
@@ -28,7 +30,7 @@ const MainNavigator =  TabNavigator ({
                 screen: RecordingScreen
             },
             PeopleProfile: {
-                screen: ProfileScreen
+                screen: PeopleProfileScreen
             },
         },
         {
@@ -60,7 +62,7 @@ const MainNavigator =  TabNavigator ({
     Requests: {
         screen: StackNavigator({
             MyPrayerRequestsList: {
-                screen: HomeScreen
+                screen: MyPrayerRequests
             },
             MyPrayerRequestDetail: {
                 screen: PrayerRequestDetailScreen
@@ -92,8 +94,37 @@ const MainNavigator =  TabNavigator ({
             
         }),
     },
-    MyProfile: {
-        screen: ProfileScreen
+    Profile: {
+        screen: StackNavigator({
+            MyProfile: {
+                screen: MyProfileScreen
+            },
+        },
+        {
+            navigationOptions: {
+                headerTitle: 'My Profile',
+                tabBarIcon: ({ tintColor, focused }) => (
+                    <Ionicons
+                        name={focused ? 'ios-person' : 'ios-person-outline'}
+                        size={26}
+                        style={{ color: tintColor }}
+                    />
+                ),
+                headerStyle: {
+                    height: metrics.headerHeight,
+                    paddingTop: metrics.headerPadding,
+                    backgroundColor: colors.primary,
+                },
+                headerTitleStyle: {
+                    marginTop: metrics.headerPadding,
+                    color: 'white',
+                },
+                headerBackTitleStyle: {
+                    color: 'white',
+                },
+            }
+            
+        }),
     },
 });
 
@@ -119,7 +150,7 @@ export const AppNavigator = StackNavigator({
         },
         Main: {
             screen: MainNavigator,
-        },  
+        },
     },
     { 
         headerMode: 'none' // This avoids duplicated headers by not rendering this navigation Stack header.

@@ -8,7 +8,7 @@ export default class  PrayerRequestDetailScreen extends Component {
   static navigationOptions = {
     headerTitle: 'Details',
   };
-  
+
   render() {
     const { navigate } = this.props.navigation;
     const { request } = this.props.navigation.state.params;
@@ -17,7 +17,9 @@ export default class  PrayerRequestDetailScreen extends Component {
       <View style={ styles.container }>
           
           <View style={ styles.upper }>
-            <Image source={{ uri: request.image }}  style={styles.image} /> 
+            <TouchableHighlight onPress={ () => navigate('PeopleProfile', {'userId': request.user_id}) }>
+              <Image source={{ uri: request.image }}  style={styles.image} /> 
+            </TouchableHighlight>
             <View style={ styles.textsContainer }>
               <View style={ styles.titleDescription }>
                 <Text style={ styles.title }> { request.type } </Text> 

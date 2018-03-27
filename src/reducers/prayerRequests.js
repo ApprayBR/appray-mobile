@@ -1,11 +1,11 @@
 import Reactotron from 'reactotron-react-native';
 import axios from 'axios';
 
-import { REQUEST_IS_LOADING, REQUEST_FETCH_DATA_SUCCESS, REQUEST_HAS_ERRORED, FILTER_BY_TYPE, GET_NEXT_PRAYER_REQUESTS_PAGE_FROM_API  } from 'appray/src/actions/types';  
-import { APPRAY_API_URL } from 'appray/src/settings';
+import { REQUEST_IS_LOADING, REQUEST_FETCH_DATA_SUCCESS, REQUEST_HAS_ERRORED, FILTER_BY_TEXT, GET_NEXT_PRAYER_REQUESTS_PAGE_FROM_API  } from 'appray/src/actions/types';  
+import { APPRAY_API_PRAYER_REQUETS_URL } from 'appray/src/settings';
 import { requestFetchDataSuccess, requestHasErrored, requestIsLoading } from 'appray/src/actions/prayerRequests';
 
-initialState = {
+const initialState = {
     isLoading: true,
     items: [],
     all_items: [],
@@ -31,16 +31,17 @@ export default function prayerRequestReducer(state=initialState, action) {
                 ...state,
                 hasErrored: action.hasErrored,
             };
-        case FILTER_BY_TYPE:
+        case FILTER_BY_TEXT:
             if (!action.text_filter) {
                 return {
                     ...state,
                     items: state.all_items,
                 };
             }
-            const requests = state.all_items ? state.all_items.reduce(function (res, request) {
+            const prayer_requests = state.all_items ? state.all_items.reduce(function (res, request) {
                 if (request.type.toLowerCase().indexOf(action.text_filter.toLowerCase()) >= 0 || 
-                request.description.toLowerCase().indexOf(action.text_filter.toLowerCase()) >= 0) {
+                    request.short_description.toLowerCase().indexOf(action.text_filter.toLowerCase()) >= 0 ||
+                    request.description.toLowerCase().indexOf(action.text_filter.toLowerCase()) >= 0 ) {
                     res.push(request);
                 }
                 return res;
@@ -48,11 +49,11 @@ export default function prayerRequestReducer(state=initialState, action) {
 
             return {
                 ...state,
-                items: request,
+                items: prayer_requests,
             }
         case GET_NEXT_PRAYER_REQUESTS_PAGE_FROM_API:
             const next_page = state.page + 1;
-            url = APPRAY_API_URL + '?page=' + next_page
+            url = APPRAY_API_PRAYER_REQUETS_URL + '?page=' + next_page
             
             axios.get(url)
             .then((response) => {

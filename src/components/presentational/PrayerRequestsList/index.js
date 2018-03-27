@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { ActivityIndicator, View, FlatList, Text, Image, TouchableOpacity } from 'react-native';
+import { getStaticImageByName } from 'appray/src/utils';
 
 import styles from './styles';
 
@@ -7,6 +8,7 @@ export default class PrayerRequestsList extends Component {
     render() {
       const { requests, isLoading, hasErrored, fetchNextPrayerRequestsPageFromAPI } = this.props;
       const { navigate } = this.props.navigation;
+      const IMAGES = getStaticImageByName();
 
       if (isLoading) {
         return (
@@ -38,7 +40,12 @@ export default class PrayerRequestsList extends Component {
               <View style={ styles.row }>
                 <Image source={{ uri: item.image }}  style={ styles.image } /> 
                 <View style={ styles.textsContainer }>
-                  <Text style={ styles.title }> { item.type } </Text> 
+                  <View style={ styles.titleContainer }>
+                    <Image
+                      style={ styles.requestImage }
+                      source={ IMAGES[item.type] }/>
+                    <Text style={ styles.title }> { item.type } </Text> 
+                  </View>
                   <Text style={ styles.description }> { item.short_description }</Text>
                 </View>
               </View>

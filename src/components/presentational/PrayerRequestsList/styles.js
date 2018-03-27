@@ -42,7 +42,19 @@ const styles = StyleSheet.create({
   descriptionContainer:{
   },
   description: {
-  }
+  },
+  requestImage: {
+    width: 30,
+    height: 30,
+    resizeMode: 'cover',
+    backgroundColor: 'transparent',
+  },
+  titleContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',  
+    alignItems: 'center',
+    marginBottom: metrics.padding,
+  },
 });
 
 export default styles;

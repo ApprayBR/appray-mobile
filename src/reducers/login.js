@@ -1,6 +1,6 @@
 import { CHANGE_LOGIN_TEXT, CHANGE_PASSWORD_TEXT } from 'appray/src/actions/types';  
 
-initialState = {
+const initialState = {
     login: '',
     password: '',
     isLoggedIn: false,
