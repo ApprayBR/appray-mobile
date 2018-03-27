@@ -15,6 +15,9 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     marginLeft: metrics.padding,
   },
+  upperMyProfile: {
+    alignItems: 'center',
+  },
   image: {
     width: 100,
     height: 150,
@@ -24,6 +27,16 @@ export const styles = StyleSheet.create({
   textsContainer: {
     flex: 1,
     alignItems: 'flex-start',
+  },
+  imageMyProfile: {
+    width: 200,
+    height: 200,
+    resizeMode: 'cover',
+    marginBottom: metrics.padding,
+    borderRadius: 100,
+  },
+  textsContainerMyProfile: {
+    alignItems: 'center',
   },
   fullName: {
     fontWeight: 'bold',
@@ -36,15 +49,19 @@ export const styles = StyleSheet.create({
   },
   upperTexts: {
     flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
+  },
+  upperTitleTexts: {
+    alignItems: 'flex-start',
+  },
+  upperValueTexts: {
+    alignItems: 'flex-start',
   },
   title: {
     fontWeight: 'bold',
     fontSize: fonts.big,
   },
   shortDescription: {
-    marginTop: 5,
+    marginTop: 15,
   },
   bottom: {
     marginTop: metrics.padding,
@@ -62,5 +79,28 @@ export const styles = StyleSheet.create({
     height: 50,
     resizeMode: 'cover',
     backgroundColor: 'transparent',
-  }
+  },
+  logout: {
+    marginTop: metrics.padding,
+    backgroundColor: 'transparent',
+    alignItems: 'center',
+    
+  },
+  logoutContainer: {
+    marginTop: 10,
+    paddingTop: 20,
+    paddingBottom: 20,
+    backgroundColor: colors.primary,
+    borderRadius: 10,
+    width: 200,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  logoutText: {
+    textAlign: 'center',
+    alignItems: 'center',
+    color: 'white',
+    fontWeight: 'bold',
+  },
 });

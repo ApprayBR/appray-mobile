@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { ScrollView, Button, Text, View, Image, Linking, WebView, TouchableHighlight } from 'react-native';
 
 import { styles } from './styles';
+import { getStaticImageByName } from 'appray/src/utils';
 
 export default class  PrayerRequestDetailScreen extends Component {
   static navigationOptions = {
@@ -12,7 +13,8 @@ export default class  PrayerRequestDetailScreen extends Component {
   render() {
     const { navigate } = this.props.navigation;
     const { request } = this.props.navigation.state.params;
-
+    const IMAGES = getStaticImageByName();
+    
     return (
       <View style={ styles.container }>
           
@@ -22,7 +24,12 @@ export default class  PrayerRequestDetailScreen extends Component {
             </TouchableHighlight>
             <View style={ styles.textsContainer }>
               <View style={ styles.titleDescription }>
-                <Text style={ styles.title }> { request.type } </Text> 
+                <View style={ styles.titleContainer }>
+                  <Image
+                    style={ styles.requestImage }
+                    source={ IMAGES[request.type] }/>
+                  <Text style={ styles.title }> { request.type } </Text> 
+                </View>
                 <Text style={ styles.shortDescription }> { request.short_description }</Text>
               </View>
             </View>

@@ -44,18 +44,19 @@ export const styles = StyleSheet.create({
     fontSize: fonts.big,
   },
   shortDescription: {
-    marginTop: 5,
-  },
-  bottom: {
-    marginTop: metrics.padding,
-    marginLeft: metrics.padding,
-    height: '60%',
+    marginTop: 3,
   },
   description: {
     margin: metrics.padding,
   },
   requestsContainer: {
-    marginTop: 20,
+    marginTop: metrics.padding,
+    marginRight: metrics.padding,
+  },
+  row: {
+    margin: 5,
+    borderBottomWidth: 1,
+    borderColor: colors.light,
   },
   requestImage: {
     width: 50,

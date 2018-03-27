@@ -22,6 +22,7 @@ export const styles = StyleSheet.create({
     },
     textsContainer: {
       flex: 1,
+      marginRight: metrics.padding,
     },
     titleDescription: {
       alignItems: 'flex-start',
@@ -30,13 +31,28 @@ export const styles = StyleSheet.create({
       fontWeight: 'bold',
       fontSize: fonts.big,
     },
+    requestImage: {
+      width: 30,
+      height: 30,
+      resizeMode: 'cover',
+      backgroundColor: 'transparent',
+    },
+    titleContainer: {
+      flexDirection: 'row',
+      justifyContent: 'center',  
+      alignItems: 'center',
+      marginBottom: metrics.padding,
+    },
     shortDescription: {
       marginTop: 5,
     },
     descriptionContainer: {
-      marginTop: metrics.padding,
       alignItems: 'center',
       height: '30%',
+      borderRadius: 10,
+      borderWidth: 1,
+      borderColor: colors.light,
+      margin: metrics.padding,
     },
     description: {
       margin: metrics.padding,

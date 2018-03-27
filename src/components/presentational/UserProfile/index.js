@@ -29,22 +29,50 @@ class UserProfile extends Component {
                 request.key = i + 1;
             });
         }
-        /*
+        
         if (isMyProfile) {
+
             return (
-                <View style={styles.container}>
-                    <Text style={styles.instructions}>
-                    Click here to log out.
-                    </Text>
-                    <Button
-                    onPress={() => {
-                        logout(navigation, 'Login');
-                    }}
-                    title="Logout"
-                    />
+                <View style={ styles.container }>
+                
+                    <View style={ styles.upperMyProfile }>
+                        <View style={ styles.profileImage }>
+                            <Image source={{ uri: user.image }}  style={styles.imageMyProfile} /> 
+                        </View>
+                        
+                        <View style={ styles.textsContainerMyProfile }>
+                            <Text style={ styles.fullName }> { user.full_name } </Text>
+                            <View style={ styles.upperTexts}>
+                                <View style={ styles.upperTitleTexts }>
+                                    <Text style={ styles.mediumText }> Member since: </Text>
+                                    <Text style={ styles.mediumText }> Religion: </Text>
+                                    <Text style={ styles.mediumText }> Church: </Text>
+                                </View>
+                                <View style={ styles.upperValueTexts }>
+                                    <Text> { user.member_since } </Text>
+                                    <Text> { user.religion } </Text>
+                                    <Text> { user.church } </Text>
+                                </View> 
+                            </View>
+                            <View style={ styles.upperTexts }>
+                                <Text style={ styles.shortDescription }> { user.prayers } </Text>
+                            </View>
+                        </View>
+                    </View>
+                    
+                    <View style={styles.bottom}>
+                        <View style={ styles.logout }>
+                            <TouchableHighlight onPress={ () => logout(navigation, 'Login') }>
+                                <View style={styles.logoutContainer}>
+                                    <Text style={styles.logoutText}>Logout</Text>
+                                </View>
+                            </TouchableHighlight>
+                        </View>
+                    </View>
+    
                 </View>
             );
-        }*/
+        }
 
         return (
             <View style={ styles.container }>

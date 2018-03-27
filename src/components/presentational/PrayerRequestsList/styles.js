@@ -18,10 +18,10 @@ const styles = StyleSheet.create({
   row: {
     flexDirection: 'row',
     justifyContent: 'space-between',  
-    paddingTop: metrics.padding,
     paddingBottom: metrics.padding,
     borderBottomWidth: 1,
     borderColor: colors.light,
+    margin: metrics.padding,
   },
   image: {
     width: 100,
