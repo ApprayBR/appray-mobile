@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Button, StyleSheet, Text, View, Image, TouchableHighlight, TouchableOpacity, FlatList } from 'react-native';
+import { Button, StyleSheet, Text, View, Image, TouchableOpacity, FlatList } from 'react-native';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
@@ -21,14 +21,7 @@ class UserProfile extends Component {
 
     render() {
         const { navigation, isMyProfile, logout, getUserFromAPI, userProfile, myUserProfile } = this.props;
-        
         user = isMyProfile ? myUserProfile : userProfile
-
-        if (user && user.requests) {
-            user.requests.forEach((request, i) => {
-                request.key = i + 1;
-            });
-        }
         
         if (isMyProfile) {
 
@@ -62,11 +55,11 @@ class UserProfile extends Component {
                     
                     <View style={styles.bottom}>
                         <View style={ styles.logout }>
-                            <TouchableHighlight onPress={ () => logout(navigation, 'Login') }>
+                            <TouchableOpacity onPress={ () => logout(navigation, 'Login') }>
                                 <View style={styles.logoutContainer}>
                                     <Text style={styles.logoutText}>Logout</Text>
                                 </View>
-                            </TouchableHighlight>
+                            </TouchableOpacity>
                         </View>
                     </View>
     

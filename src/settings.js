@@ -1,6 +1,7 @@
 export const APPRAY_API_PRAYER_REQUETS_URL = 'http://www.mocky.io/v2/5ab9441b2c00005400186456';
 export const APPRAY_API_USER_PROFILE_URL = 'http://www.mocky.io/v2/5ab972212c0000d41e1864d4';
 export const APPRAY_API_LOGGED_USER_PROFILE_URL = 'http://www.mocky.io/v2/5ab9a26d2c00005c0018652e';
+export const APPRAY_API_HELPFUL_VERSES_URL = 'http://www.mocky.io/v2/5abafc6b350000540073a7bc';
 
 export const FACEBOOK_APP = {
     ID: '370859849993011',

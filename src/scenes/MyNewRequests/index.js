@@ -18,12 +18,6 @@ class MyNewPrayerRequestsScreen extends Component {
     render() {
         const { navigation, logout, getLoggedUserFromAPI, myUserProfile } = this.props;
         
-        if (myUserProfile && myUserProfile.requests) {
-            myUserProfile.requests.forEach((request, i) => {
-                request.key = i + 1;
-            });
-        }
-
         return (
             <View style={ styles.container }>
                 

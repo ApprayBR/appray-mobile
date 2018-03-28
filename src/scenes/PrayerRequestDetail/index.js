@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { ScrollView, Button, Text, View, Image, Linking, WebView, TouchableHighlight } from 'react-native';
+import { ScrollView, Button, Text, View, Image, Linking, WebView, TouchableOpacity } from 'react-native';
 
 import { styles } from './styles';
 import { getStaticImageByName } from 'appray/src/utils';
@@ -10,18 +10,59 @@ export default class  PrayerRequestDetailScreen extends Component {
     headerTitle: 'Details',
   };
 
+  _markPrayerRequestAsSolved(request) {
+    alert('Your request is solved. Everyone who prayed for this will be notified');
+  }
+
+  _renderButton(navigate, request) {
+    if (this.props.navigation.state.params.isMyProfile) {
+      return (
+        <View style={ styles.pray }>
+            <TouchableOpacity onPress={ () => this._markPrayerRequestAsSolved(request) }>
+              <View style={styles.prayingContainer} >
+                <View style={styles.prayingTextContainer}>
+                  <Text style={styles.prayingText}>Mark this as solved</Text>
+                </View>
+              </View>
+            </TouchableOpacity>
+
+            <TouchableOpacity onPress={ () => navigate('MyPrayerRequestRecording', {'request': request}) }>
+              <View style={styles.prayingContainer} >
+                <View style={styles.prayingTextContainer}>
+                  <Text style={styles.prayingText}>See Prayers For This</Text>
+                </View>
+              </View>
+            </TouchableOpacity>
+        </View>
+      );
+    }
+
+    return (
+      <View style={ styles.pray }>
+          <TouchableOpacity onPress={ () => navigate('PrayerRequestRecording', {'request': request}) }>
+            <View style={styles.prayingContainer} >
+              <Image source={ require('appray/src/resources/images/praying-hands.png') } style={styles.prayingImage} />
+              <View style={styles.prayingTextContainer}>
+                <Text style={styles.prayingText}>Pray For This</Text>
+              </View>
+            </View>
+          </TouchableOpacity>
+      </View>
+    );
+  }
+
   render() {
     const { navigate } = this.props.navigation;
     const { request } = this.props.navigation.state.params;
     const IMAGES = getStaticImageByName();
-    
+
     return (
       <View style={ styles.container }>
           
           <View style={ styles.upper }>
-            <TouchableHighlight onPress={ () => navigate('PeopleProfile', {'userId': request.user_id}) }>
+            <TouchableOpacity onPress={ () => navigate('PeopleProfile', {'userId': request.user_id}) }>
               <Image source={{ uri: request.image }}  style={styles.image} /> 
-            </TouchableHighlight>
+            </TouchableOpacity>
             <View style={ styles.textsContainer }>
               <View style={ styles.titleDescription }>
                 <View style={ styles.titleContainer }>
@@ -41,16 +82,7 @@ export default class  PrayerRequestDetailScreen extends Component {
             </ScrollView>
           </View>
 
-          <View style={ styles.pray }>
-              <TouchableHighlight onPress={ () => navigate('PrayerRequestRecording', {'request': request}) }>
-                <View style={styles.prayingContainer} >
-                  <Image source={ require('appray/src/resources/images/praying-hands.png') } style={styles.prayingImage} />
-                  <View style={styles.prayingTextContainer}>
-                    <Text style={styles.prayingText}>Pray for this</Text>
-                  </View>
-                </View>
-              </TouchableHighlight>
-          </View>
+          {this._renderButton(navigate, request)}
         
       </View>
     );

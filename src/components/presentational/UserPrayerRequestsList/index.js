@@ -11,13 +11,8 @@ export default class UserPrayerRequestsList extends Component {
     render() {
         const { navigation, userProfile, isMyProfile } = this.props;
         const IMAGES = getStaticImageByName();
+        const nextScreen = isMyProfile ? 'MyPrayerRequestDetail' : 'PeoplePrayerRequestDetail' 
         userName = isMyProfile ? 'You' : userProfile.name
-        
-        if (userProfile && userProfile.requests) {
-            userProfile.requests.forEach((request, i) => {
-                request.key = i + 1;
-            });
-        }
         
         return (
             <View>
@@ -28,7 +23,7 @@ export default class UserPrayerRequestsList extends Component {
                     style={ styles.requestsContainer }
                     data={ userProfile.requests }
                     renderItem={ ({ item }) =>
-                        <TouchableOpacity onPress={() => navigation.navigate('PeoplePrayerRequestDetail', {'request': item})}>
+                        <TouchableOpacity onPress={() => navigation.navigate(nextScreen, {'request': item, 'isMyProfile': isMyProfile})}>
                             <View style={ styles.row }>
                                 <View style={ styles.textsContainer }>
                                     <Image
@@ -40,6 +35,7 @@ export default class UserPrayerRequestsList extends Component {
                             </View>
                         </TouchableOpacity>
                     }
+                    keyExtractor={(item, index) => index}
                 />
             </View>
         );

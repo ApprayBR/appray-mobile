@@ -6,6 +6,7 @@ import prayerRequestReducer from './prayerRequests';
 import navigatorReducer from './navigator';
 import storageReducer from './storage';
 import userReducer from './user';
+import versesReducer from './verses';
 
 const AppReducer = combineReducers({
     login: loginReducer,
@@ -13,6 +14,7 @@ const AppReducer = combineReducers({
     nav: navigatorReducer,
     appStorage: storageReducer,
     user: userReducer,
+    verses: versesReducer,
 });
 
 export default AppReducer;

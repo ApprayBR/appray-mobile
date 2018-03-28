@@ -65,7 +65,7 @@ export const styles = StyleSheet.create({
   },
   bottom: {
     marginTop: metrics.padding,
-    marginLeft: metrics.padding,
+    marginLeft: 5,
     height: '60%',
   },
   description: {

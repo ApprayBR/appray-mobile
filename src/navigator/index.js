@@ -16,6 +16,7 @@ import MyNewPrayerRequestScreen from 'appray/src/scenes/MyNewRequests';
 import PeopleProfileScreen from 'appray/src/scenes/Profile/PeopleProfile';
 import PrayerRequestDetailScreen from 'appray/src/scenes/PrayerRequestDetail';
 import RecordingScreen from 'appray/src/scenes/Recording';
+import MyRecordingsScreen from 'appray/src/scenes/MyRecordings';
 import { metrics, colors } from 'appray/src/styles';
 
 const MainNavigator =  TabNavigator ({
@@ -71,6 +72,9 @@ const MainNavigator =  TabNavigator ({
             MyNewPrayerRequest: {
                 screen: MyNewPrayerRequestScreen
             },
+            MyPrayerRequestRecording: {
+                screen: MyRecordingsScreen
+            }
         },
         {
             navigationOptions: {

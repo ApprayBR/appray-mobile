@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Button, StyleSheet, Text, View, Image, TouchableHighlight, TouchableOpacity, FlatList } from 'react-native';
+import { Button, StyleSheet, Text, View, Image, TouchableOpacity, FlatList } from 'react-native';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
@@ -17,12 +17,6 @@ class MyPrayerRequestsScreen extends Component {
 
     render() {
         const { navigation, logout, getLoggedUserFromAPI, myUserProfile } = this.props;
-        
-        if (myUserProfile && myUserProfile.requests) {
-            myUserProfile.requests.forEach((request, i) => {
-                request.key = i + 1;
-            });
-        }
 
         return (
             <View style={ styles.container }>
@@ -31,12 +25,12 @@ class MyPrayerRequestsScreen extends Component {
                 </View>
 
                 <View style={ styles.addNew }>
-                    <TouchableHighlight onPress={ () => navigation.navigate('MyNewPrayerRequest', {'user': myUserProfile}) }>
+                    <TouchableOpacity onPress={ () => navigation.navigate('MyNewPrayerRequest', {'user': myUserProfile}) }>
                         <View style={styles.addTextContainer}>
                             <Image source={ require('appray/src/resources/images/add.png') } style={styles.addImage} />
                             <Text style={styles.addText}>Add New Request</Text>
                         </View>
-                    </TouchableHighlight>
+                    </TouchableOpacity>
                 </View>
             </View>
                

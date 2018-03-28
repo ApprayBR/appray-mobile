@@ -25,10 +25,6 @@ export default class PrayerRequestsList extends Component {
           </View>
         );
       }
-
-      requests.forEach((request, i) => {
-        request.key = i + 1;
-      });
       return (
         <FlatList
           style={ styles.container }
@@ -51,6 +47,7 @@ export default class PrayerRequestsList extends Component {
               </View>
             </TouchableOpacity>
           }
+          keyExtractor={(item, index) => index}
         />
       );
       
