@@ -37,9 +37,9 @@ class UserProfile extends Component {
                             <Text style={ styles.fullName }> { user.full_name } </Text>
                             <View style={ styles.upperTexts}>
                                 <View style={ styles.upperTitleTexts }>
-                                    <Text style={ styles.mediumText }> Member since: </Text>
-                                    <Text style={ styles.mediumText }> Religion: </Text>
-                                    <Text style={ styles.mediumText }> Church: </Text>
+                                    <Text style={ styles.mediumText }> Membro desde: </Text>
+                                    <Text style={ styles.mediumText }> Religião: </Text>
+                                    <Text style={ styles.mediumText }> Igreja: </Text>
                                 </View>
                                 <View style={ styles.upperValueTexts }>
                                     <Text> { user.member_since } </Text>
@@ -57,7 +57,7 @@ class UserProfile extends Component {
                         <View style={ styles.logout }>
                             <TouchableOpacity onPress={ () => logout(navigation, 'Login') }>
                                 <View style={styles.logoutContainer}>
-                                    <Text style={styles.logoutText}>Logout</Text>
+                                    <Text style={styles.logoutText}>Sair</Text>
                                 </View>
                             </TouchableOpacity>
                         </View>
@@ -76,9 +76,9 @@ class UserProfile extends Component {
                         <Text style={ styles.fullName }> { user.full_name } </Text>
                         <View style={ styles.upperTexts}>
                             <View style={ styles.upperTitleTexts }>
-                                <Text style={ styles.mediumText }> Member since: </Text>
-                                <Text style={ styles.mediumText }> Religion: </Text>
-                                <Text style={ styles.mediumText }> Church: </Text>
+                                <Text style={ styles.mediumText }> Membro desde: </Text>
+                                <Text style={ styles.mediumText }> Religião: </Text>
+                                <Text style={ styles.mediumText }> Igreja: </Text>
                             </View>
                             <View style={ styles.upperValueTexts }>
                                 <Text> { user.member_since } </Text>

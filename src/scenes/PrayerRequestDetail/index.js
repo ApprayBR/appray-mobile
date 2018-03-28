@@ -7,11 +7,11 @@ import { getStaticImageByName } from 'appray/src/utils';
 
 export default class  PrayerRequestDetailScreen extends Component {
   static navigationOptions = {
-    headerTitle: 'Details',
+    headerTitle: 'Detalhes',
   };
 
   _markPrayerRequestAsSolved(request) {
-    alert('Your request is solved. Everyone who prayed for this will be notified');
+    alert('Seu pedido foi solucionado. Todos que oraram por isso serão notificados =)');
   }
 
   _renderButton(navigate, request) {
@@ -21,7 +21,7 @@ export default class  PrayerRequestDetailScreen extends Component {
             <TouchableOpacity onPress={ () => this._markPrayerRequestAsSolved(request) }>
               <View style={styles.prayingContainer} >
                 <View style={styles.prayingTextContainer}>
-                  <Text style={styles.prayingText}>Mark this as solved</Text>
+                  <Text style={styles.prayingText}>Marcar Como Resolvido</Text>
                 </View>
               </View>
             </TouchableOpacity>
@@ -29,7 +29,7 @@ export default class  PrayerRequestDetailScreen extends Component {
             <TouchableOpacity onPress={ () => navigate('MyPrayerRequestRecording', {'request': request}) }>
               <View style={styles.prayingContainer} >
                 <View style={styles.prayingTextContainer}>
-                  <Text style={styles.prayingText}>See Prayers For This</Text>
+                  <Text style={styles.prayingText}>Ver Orações Recebidas</Text>
                 </View>
               </View>
             </TouchableOpacity>
@@ -43,7 +43,7 @@ export default class  PrayerRequestDetailScreen extends Component {
             <View style={styles.prayingContainer} >
               <Image source={ require('appray/src/resources/images/praying-hands.png') } style={styles.prayingImage} />
               <View style={styles.prayingTextContainer}>
-                <Text style={styles.prayingText}>Pray For This</Text>
+                <Text style={styles.prayingText}>Orar Por Isso</Text>
               </View>
             </View>
           </TouchableOpacity>

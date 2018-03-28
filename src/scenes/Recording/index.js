@@ -29,7 +29,7 @@ class RecordingScreen extends Component {
                 source={ require('appray/src/resources/images/attention_sign.png') }
               />
               <Text style={styles.title}>
-                Biblical guidance about {request.type}:
+                Orientação bíblica sobre {request.type}:
               </Text>
             </View>
             

@@ -10,7 +10,7 @@ import AudioPlayerRecorder from 'appray/src/components/presentational/AudioPlaye
 
 class MyRecordingsScreen extends Component {
     static navigationOptions = {
-        headerTitle: 'My Recordings',
+        headerTitle: 'Orações Recebidas',
     };
 
     componentWillMount() {

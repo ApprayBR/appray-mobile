@@ -17,7 +17,7 @@ export default class UserPrayerRequestsList extends Component {
         return (
             <View>
                 <Text style={ styles.title }>
-                    All requests from { userName }:
+                    Todos os pedidos de { userName }:
                 </Text>
                 <FlatList
                     style={ styles.requestsContainer }

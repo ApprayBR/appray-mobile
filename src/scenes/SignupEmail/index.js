@@ -32,7 +32,7 @@ class SignupEmailScreen extends Component {
               style={ styles.topMessageImage }
               source={ require('appray/src/resources/images/movies_icon_small.png') }
             />
-            <Text style={ styles.topMessageText }>Create your account and know more about Appray!</Text>
+            <Text style={ styles.topMessageText }>Cria sua conta e saiba mais sobre o Appray!</Text>
           </View>
           <View style={ styles.textInputContainer }>
             <TextInput 
@@ -62,13 +62,13 @@ class SignupEmailScreen extends Component {
                   style={ styles.createAccountImage }
                   source={ require('appray/src/resources/images/create_account_icon.png') }
                 />
-                <Text style={ styles.createAccountButtonText }>CREATE ACCOUNT</Text>  
+                <Text style={ styles.createAccountButtonText }>CRIAR CONTA</Text>  
               </View>
             </TouchableHighlight >
             <TouchableHighlight
               underlayColor='transparent'
               onPress={ () => navigation.navigate('Login') }>
-                <Text style={ styles.loginText }>Already have an account? Log in now</Text>
+                <Text style={ styles.loginText }>Já tem uma conta? Entre</Text>
             </TouchableHighlight>
           </View>
         </View>

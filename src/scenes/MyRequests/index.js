@@ -28,7 +28,7 @@ class MyPrayerRequestsScreen extends Component {
                     <TouchableOpacity onPress={ () => navigation.navigate('MyNewPrayerRequest', {'user': myUserProfile}) }>
                         <View style={styles.addTextContainer}>
                             <Image source={ require('appray/src/resources/images/add.png') } style={styles.addImage} />
-                            <Text style={styles.addText}>Add New Request</Text>
+                            <Text style={styles.addText}>Adicionar Pedido</Text>
                         </View>
                     </TouchableOpacity>
                 </View>

@@ -21,7 +21,7 @@ export default class PrayerRequestsList extends Component {
       if (hasErrored) {
         return (
           <View style={ styles.exceptionContainer }>
-            <Text>Sorry! An unexpected error has occurred =(</Text>
+            <Text>Desculpa! Ocorreu um erro =(</Text>
           </View>
         );
       }

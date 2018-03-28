@@ -65,8 +65,8 @@ class InitScreen extends Component {
           style={ styles.button }
           onPress={ () => navigation.navigate('Login') }>
           <View>
-            <Text style={ styles.buttonFirstText }>Have an account?</Text>
-            <Text style={ styles.buttonSecondText }>LOG IN</Text>
+            <Text style={ styles.buttonFirstText }>Já tem uma conta?</Text>
+            <Text style={ styles.buttonSecondText }>LOGIN</Text>
           </View>
         </TouchableHighlight >
         <TouchableHighlight 
@@ -74,8 +74,8 @@ class InitScreen extends Component {
           style={ styles.button }
           onPress={ () => navigation.navigate('Signup') }>
           <View>
-            <Text style={ styles.buttonFirstText }>New to Appray?</Text>
-            <Text style={ styles.buttonSecondText }>SIGN UP</Text>
+            <Text style={ styles.buttonFirstText }>Novo no Appray?</Text>
+            <Text style={ styles.buttonSecondText }>INSCREVER-ME</Text>
           </View>
         </TouchableHighlight >
       </View>

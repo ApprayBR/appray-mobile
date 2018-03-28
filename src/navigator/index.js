@@ -37,7 +37,8 @@ const MainNavigator =  TabNavigator ({
         },
         {
             navigationOptions: {
-                headerTitle: 'People\'s Requests',
+                headerTitle: 'Lista de Pedidos',
+                title: 'Pessoas',
                 tabBarIcon: ({ tintColor, focused }) => (
                     <Ionicons
                         name={focused ? 'ios-people' : 'ios-people-outline'}
@@ -78,7 +79,8 @@ const MainNavigator =  TabNavigator ({
         },
         {
             navigationOptions: {
-                headerTitle: 'My Requests',
+                headerTitle: 'Meus Pedidos',
+                title: 'Meus Pedidos',
                 tabBarIcon: ({ tintColor, focused }) => (
                     <Ionicons
                         name={focused ? 'ios-flame' : 'ios-flame-outline'}
@@ -110,7 +112,8 @@ const MainNavigator =  TabNavigator ({
         },
         {
             navigationOptions: {
-                headerTitle: 'My Profile',
+                headerTitle: 'Meu Perfil',
+                title: 'Perfil',
                 tabBarIcon: ({ tintColor, focused }) => (
                     <Ionicons
                         name={focused ? 'ios-person' : 'ios-person-outline'}

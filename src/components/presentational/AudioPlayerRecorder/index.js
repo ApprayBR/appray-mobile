@@ -131,7 +131,7 @@ class AudioPlayerRecorder extends Component {
           <TouchableOpacity onPress={ () => this._sendPrayer() }
                             disabled={ isDisabled }>
               <View style={styles.addTextContainer}>
-                  <Text style={styles.addText}>Send Prayer</Text>
+                  <Text style={styles.addText}>Enviar Oração</Text>
               </View>
           </TouchableOpacity>
         </View>
@@ -253,7 +253,7 @@ class AudioPlayerRecorder extends Component {
               style={styles.correctSign}
               source={ require('appray/src/resources/images/correct_sign.png') }
             />
-            <Text style={styles.title}> Prayer successfully sent! </Text>
+            <Text style={styles.title}> Oração enviada! </Text>
           </View>
         );
       }

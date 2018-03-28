@@ -32,7 +32,7 @@ class SignupScreen extends Component {
               style={ styles.topMessageImage }
               source={ require('appray/src/resources/images/movies_icon_small.png') }
             />
-            <Text style={ styles.topMessageText }>Create your account and pray for others!</Text>
+            <Text style={ styles.topMessageText }>Crie sua conta e ore pelos seus irmãos!</Text>
           </View>
           <View style={ styles.facebook }>
             <FacebookLoginButton navigation={ navigation } />
@@ -50,13 +50,13 @@ class SignupScreen extends Component {
                   style={ styles.emailImage }
                   source={ require('appray/src/resources/images/email_icon.png') }
                 />
-                <Text style={ styles.emailButtonText }>EMAIL ADDRESS</Text>  
+                <Text style={ styles.emailButtonText }>EMAIL</Text>  
               </View>
             </TouchableHighlight >
             <TouchableHighlight
               underlayColor='transparent'
               onPress={ () => navigation.navigate('Login') }>
-                <Text style={ styles.loginText }>Already have an account? Log in now</Text>
+                <Text style={ styles.loginText }>Já tem uma conta? Entre</Text>
             </TouchableHighlight>
           </View>
         </View>

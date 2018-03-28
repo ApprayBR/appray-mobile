@@ -32,7 +32,7 @@ class LoginScreen extends Component {
               style={ styles.topMessageImage }
               source={ require('appray/src/resources/images/movies_icon_small.png') }
             />
-            <Text style={ styles.topMessageText }>Login and pray!</Text>
+            <Text style={ styles.topMessageText }>Entre e Ore!</Text>
           </View>
           <View style={ styles.facebook }>
             <FacebookLoginButton navigation={ navigation } />
@@ -52,12 +52,12 @@ class LoginScreen extends Component {
               underlayColor={ colors.secondary }
               style={ styles.loginButton }
               onPress={ () => navigation.dispatch({ type: 'Login' }) }>
-              <Text style={ styles.loginButtonText }>LOG IN</Text>
+              <Text style={ styles.loginButtonText }>LOGIN</Text>
             </TouchableHighlight >
             <TouchableHighlight
               underlayColor='transparent'
               onPress={ () => navigation.navigate('Signup') }>
-                <Text style={ styles.signupText }> New to Appray? Sign up now. </Text>
+                <Text style={ styles.signupText }> Novo no Appray? Increva-se agora. </Text>
             </TouchableHighlight>
           </View>
         </View>
