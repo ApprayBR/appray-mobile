@@ -35,7 +35,7 @@ const MainNavigator =  TabNavigator ({
                 screen: PeopleProfileScreen
             },
         },
-        {
+        {   
             navigationOptions: {
                 headerTitle: 'Lista de Pedidos',
                 title: 'Pessoas',
@@ -54,6 +54,8 @@ const MainNavigator =  TabNavigator ({
                 headerTitleStyle: {
                     marginTop: metrics.headerPadding,
                     color: 'white',
+                    alignSelf: 'center',
+ 					textAlign:'center',
                 },
                 headerBackTitleStyle: {
                     color: 'white',
@@ -96,6 +98,8 @@ const MainNavigator =  TabNavigator ({
                 headerTitleStyle: {
                     marginTop: metrics.headerPadding,
                     color: 'white',
+                    alignSelf: 'center',
+                    textAlign:'center',
                 },
                 headerBackTitleStyle: {
                     color: 'white',
@@ -129,6 +133,8 @@ const MainNavigator =  TabNavigator ({
                 headerTitleStyle: {
                     marginTop: metrics.headerPadding,
                     color: 'white',
+                    alignSelf: 'center',
+                    textAlign:'center',
                 },
                 headerBackTitleStyle: {
                     color: 'white',
@@ -137,6 +143,10 @@ const MainNavigator =  TabNavigator ({
             
         }),
     },
+},
+{
+    ...TabNavigator.Presets.iOSBottomTabs, // or AndroidTopTabs
+    tabBarPosition: "bottom",
 });
 
 export const AppNavigator = StackNavigator({

@@ -5,7 +5,6 @@ import { metrics, colors, fonts } from 'appray/src/styles';
 
 export const styles = StyleSheet.create({
     container: {
-      flex: 1,
       marginTop: metrics.padding,
       alignItems: 'center',
     },
@@ -15,7 +14,7 @@ export const styles = StyleSheet.create({
     },
     image: {
       width: 100,
-      height: 150,
+      height: 120,
       resizeMode: 'cover',
       marginRight: metrics.padding,
       marginLeft: metrics.padding,
@@ -58,18 +57,31 @@ export const styles = StyleSheet.create({
       margin: metrics.padding,
       textAlign: 'justify',
     },
+    buttonImage: {
+      width: 20,
+      height: 20,
+      resizeMode: 'cover',
+      backgroundColor: 'transparent',
+      marginLeft: 5,
+    },
+    buttonImagePray: {
+      width: 30,
+      height: 30,
+      resizeMode: 'cover',
+      backgroundColor: 'transparent',
+      marginLeft: 5,
+      marginRight: metrics.padding,
+    },
     pray: {
       marginTop: metrics.padding,
       backgroundColor: 'transparent',
     },
+    myPrayers: {
+
+    },
     prayingContainer: {
       alignItems: 'center',
       marginTop: metrics.padding,
-    },
-    prayingImage: {
-      width: 50,
-      height: 50,
-      alignItems: 'center',
     },
     prayingTextContainer: {
       marginTop: 10,
@@ -78,11 +90,17 @@ export const styles = StyleSheet.create({
       backgroundColor: colors.primary,
       borderRadius: 10,
       width: 200,
+      alignItems: 'center',
+    },
+    imageText: {
+      flexDirection: 'row',
+      alignItems: 'center',
     },
     prayingText: {
       textAlign: 'center',
       alignItems: 'center',
       color: 'white',
       fontWeight: 'bold',
+      margin: 5,
     }
   });

@@ -11,16 +11,20 @@ export default class  PrayerRequestDetailScreen extends Component {
   };
 
   _markPrayerRequestAsSolved(request) {
-    alert('Seu pedido foi solucionado. Todos que oraram por isso serão notificados =)');
+    alert('Seu pedido foi marcado como solucionado. Todos que oraram por isso serão notificados =)');
   }
 
   _renderButton(navigate, request) {
     if (this.props.navigation.state.params.isMyProfile) {
       return (
-        <View style={ styles.pray }>
+        <View style={ styles.myPrayers }>
             <TouchableOpacity onPress={ () => this._markPrayerRequestAsSolved(request) }>
               <View style={styles.prayingContainer} >
-                <View style={styles.prayingTextContainer}>
+                <View style={ [styles.prayingTextContainer, styles.imageText] }>
+                  <Image
+                    style={ styles.buttonImage }
+                    source={ require('appray/src/resources/images/correct_sign.png') }
+                  />
                   <Text style={styles.prayingText}>Marcar Como Resolvido</Text>
                 </View>
               </View>
@@ -28,7 +32,11 @@ export default class  PrayerRequestDetailScreen extends Component {
 
             <TouchableOpacity onPress={ () => navigate('MyPrayerRequestRecording', {'request': request}) }>
               <View style={styles.prayingContainer} >
-                <View style={styles.prayingTextContainer}>
+                <View style={ [styles.prayingTextContainer, styles.imageText] }>
+                  <Image
+                    style={ styles.buttonImage }
+                    source={ require('appray/src/resources/images/list_icon.png') }
+                  />
                   <Text style={styles.prayingText}>Ver Orações Recebidas</Text>
                 </View>
               </View>
@@ -41,8 +49,11 @@ export default class  PrayerRequestDetailScreen extends Component {
       <View style={ styles.pray }>
           <TouchableOpacity onPress={ () => navigate('PrayerRequestRecording', {'request': request}) }>
             <View style={styles.prayingContainer} >
-              <Image source={ require('appray/src/resources/images/praying-hands.png') } style={styles.prayingImage} />
-              <View style={styles.prayingTextContainer}>
+              <View style={ [styles.prayingTextContainer, styles.imageText] }>
+                <Image
+                  style={ styles.buttonImagePray }
+                  source={ require('appray/src/resources/images/pray_icon.png') }
+                  />
                 <Text style={styles.prayingText}>Orar Por Isso</Text>
               </View>
             </View>

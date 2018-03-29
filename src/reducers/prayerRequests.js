@@ -1,9 +1,18 @@
 import Reactotron from 'reactotron-react-native';
 import axios from 'axios';
 
-import { REQUEST_IS_LOADING, REQUEST_FETCH_DATA_SUCCESS, REQUEST_HAS_ERRORED, FILTER_BY_TEXT, GET_NEXT_PRAYER_REQUESTS_PAGE_FROM_API  } from 'appray/src/actions/types';  
-import { APPRAY_API_PRAYER_REQUETS_URL } from 'appray/src/settings';
-import { requestFetchDataSuccess, requestHasErrored, requestIsLoading } from 'appray/src/actions/prayerRequests';
+import { 
+    REQUEST_IS_LOADING, 
+    REQUEST_FETCH_DATA_SUCCESS, 
+    REQUEST_HAS_ERRORED, 
+    FILTER_BY_TEXT, 
+    GET_NEXT_PRAYER_REQUESTS_PAGE_FROM_API,
+    GET_RECORDINGS_FOR_MY_PRAYER_REQUEST,
+    SET_RECORDINGS_FOR_MY_PRAYER_REQUEST,
+} from 'appray/src/actions/types';  
+
+import { APPRAY_API_PRAYER_REQUETS_URL, APPRAY_API_MY_RECORDINGS_URL } from 'appray/src/settings';
+import { requestFetchDataSuccess, requestHasErrored, requestIsLoading, getRecordingsForMyPrayerRequest, setRecordingsForPrayerRequest } from 'appray/src/actions/prayerRequests';
 
 const initialState = {
     isLoading: true,
@@ -12,6 +21,7 @@ const initialState = {
     hasErrored: false,
     type_filter: "",
     page: 0,
+    myPrayerRequestRecordings: {},
 }
 export default function prayerRequestReducer(state=initialState, action) {
     switch (action.type) {
@@ -76,6 +86,31 @@ export default function prayerRequestReducer(state=initialState, action) {
                 ...state,
                 page: next_page,
             }
+        case GET_RECORDINGS_FOR_MY_PRAYER_REQUEST:
+            const prayerRequestId = action.prayerRequestId
+            url = APPRAY_API_MY_RECORDINGS_URL + '?request=' + prayerRequestId
+            
+            axios.get(url)
+            .then((response) => {
+                if (!response.status === 200) {
+                    throw Error(`An error occurred while requesting the API. Status: ${response.statusText}. Body: ${response.text()}`);
+                }
+                if (response.data) {
+                    action.dispatcher(setRecordingsForPrayerRequest(response.data));
+                }
+            })
+            .catch((error) => {
+                Reactotron.error(error);
+                action.dispatcher(requestHasErrored(true));
+            });
+
+            return state
+
+        case SET_RECORDINGS_FOR_MY_PRAYER_REQUEST:
+            return {
+                ...state,
+                myPrayerRequestRecordings: action.prayerRequestRecordings,
+            };
         default:
             return state;
     }

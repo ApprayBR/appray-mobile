@@ -87,8 +87,8 @@ export const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   addImage: {
-    width: 30,
-    height: 30,
+    width: 25,
+    height: 25,
     marginRight: metrics.padding,
   },
 });

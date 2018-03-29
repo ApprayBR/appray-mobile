@@ -7,6 +7,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import styles from './styles';
 import AudioPlayerRecorder from 'appray/src/components/presentational/AudioPlayerRecorder';
+import { getRecordingsForMyPrayerRequest } from 'appray/src/actions/prayerRequests';
 
 class MyRecordingsScreen extends Component {
     static navigationOptions = {
@@ -14,14 +15,50 @@ class MyRecordingsScreen extends Component {
     };
 
     componentWillMount() {
+      this.props.getRecordingsForMyPrayerRequest(this.props.navigation.state.params.request.id);
+    }
+
+    downloadAndPlay(recording) {
+      alert("Ouvindo oração: " + recording.url);
+    }
+
+    delete(recording) {
+      alert("Deletando oração: " + recording.url);
     }
 
     render() {
+      const { myPrayerRequestRecordings } = this.props;
       const { request } = this.props.navigation.state.params;
       
       return (
         <View style={styles.container}>
-          
+          <FlatList
+            style={ styles.list }
+            data={ myPrayerRequestRecordings }
+            renderItem={ ({ item }) =>
+              <View style={ styles.item }>
+                <View style={ styles.itemLeft }>
+                  <TouchableOpacity onPress={() => this.downloadAndPlay(item)}>
+                    <Image
+                      style={ styles.button }
+                      source={ require('appray/src/resources/images/audio_play.png') }
+                    />
+                  </TouchableOpacity>
+                  <View style={ styles.itemTextContainer }>
+                    <Text style={ styles.title }> {item.date} </Text>
+                    <Text style={ styles.title }> {item.duration} </Text>
+                  </View>
+                </View>
+                <TouchableOpacity onPress={() => this.delete(item)}>
+                  <Image
+                    style={ styles.trash }
+                    source={ require('appray/src/resources/images/trash_icon.png') }
+                  />
+                </TouchableOpacity>
+              </View>
+            }
+            keyExtractor={(item, index) => index}
+          />
         </View>
       );
     }
@@ -29,11 +66,12 @@ class MyRecordingsScreen extends Component {
 
 const mapStateToProps = (state) => {
   return {
+    myPrayerRequestRecordings: state.requests.myPrayerRequestRecordings,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({ }, dispatch);
+  return bindActionCreators({ getRecordingsForMyPrayerRequest }, dispatch);
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(MyRecordingsScreen);

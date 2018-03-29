@@ -1,4 +1,13 @@
-import { ALL_PRAYER_REQUESTS, FILTER_BY_TEXT, REQUEST_HAS_ERRORED, REQUEST_IS_LOADING, REQUEST_FETCH_DATA_SUCCESS, GET_NEXT_PRAYER_REQUESTS_PAGE_FROM_API } from './types';
+import { 
+    ALL_PRAYER_REQUESTS, 
+    FILTER_BY_TEXT, 
+    REQUEST_HAS_ERRORED, 
+    REQUEST_IS_LOADING, 
+    REQUEST_FETCH_DATA_SUCCESS, 
+    GET_NEXT_PRAYER_REQUESTS_PAGE_FROM_API,
+    GET_RECORDINGS_FOR_MY_PRAYER_REQUEST,
+    SET_RECORDINGS_FOR_MY_PRAYER_REQUEST,
+ } from './types';
 
 // Action creators:
 export function requestIsLoading(bool) {
@@ -27,7 +36,7 @@ export const filterPrayerRequests = (text) => {
         type: FILTER_BY_TEXT,
         text_filter: text,
     }
-};
+}
 
 export const getNextPrayerRequestsPage = (dispatch) => {
     return {
@@ -36,12 +45,27 @@ export const getNextPrayerRequestsPage = (dispatch) => {
     };
 }
 
+export const getRecordingsForPrayerRequest = (prayerRequestId, dispatch) => {
+    return {
+        type: GET_RECORDINGS_FOR_MY_PRAYER_REQUEST,
+        dispatcher: dispatch,
+        prayerRequestId,
+    };
+}
+
+export const setRecordingsForPrayerRequest = (prayerRequestRecordings) => {
+    return {
+        type: SET_RECORDINGS_FOR_MY_PRAYER_REQUEST,
+        prayerRequestRecordings,
+    };
+}
+
 // Thunks:
 export function fetchNextPrayerRequestsPageFromAPI() {
     return (dispatch) => {
         dispatch(getNextPrayerRequestsPage(dispatch));
     };
-};
+}
 
 export function filterPrayerRequestsByText(text) {
     return (dispatch) => {
@@ -49,4 +73,11 @@ export function filterPrayerRequestsByText(text) {
         dispatch(filterPrayerRequests(text));
         dispatch(requestIsLoading(false));
     };
-};
+}
+
+
+export function getRecordingsForMyPrayerRequest(prayerRequestId) {
+    return (dispatch) => {
+        dispatch(getRecordingsForPrayerRequest(prayerRequestId, dispatch));
+    }
+}

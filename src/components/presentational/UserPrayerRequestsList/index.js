@@ -12,12 +12,11 @@ export default class UserPrayerRequestsList extends Component {
         const { navigation, userProfile, isMyProfile } = this.props;
         const IMAGES = getStaticImageByName();
         const nextScreen = isMyProfile ? 'MyPrayerRequestDetail' : 'PeoplePrayerRequestDetail' 
-        userName = isMyProfile ? 'You' : userProfile.name
-        
+        const title = isMyProfile ? 'Todos os meus pedidos' : 'Todos os pedidos de ' + userProfile.name
         return (
             <View>
                 <Text style={ styles.title }>
-                    Todos os pedidos de { userName }:
+                    { title }:
                 </Text>
                 <FlatList
                     style={ styles.requestsContainer }

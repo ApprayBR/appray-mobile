@@ -56,8 +56,12 @@ class UserProfile extends Component {
                     <View style={styles.bottom}>
                         <View style={ styles.logout }>
                             <TouchableOpacity onPress={ () => logout(navigation, 'Login') }>
-                                <View style={styles.logoutContainer}>
-                                    <Text style={styles.logoutText}>Sair</Text>
+                                <View style={ [styles.logoutContainer, styles.imageText] }>
+                                    <Image
+                                        style={ styles.buttonImage }
+                                        source={ require('appray/src/resources/images/exit_icon.png') }
+                                    />
+                                    <Text style={styles.logoutText}>Sair do Appray</Text>
                                 </View>
                             </TouchableOpacity>
                         </View>

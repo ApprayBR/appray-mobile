@@ -24,6 +24,17 @@ export const styles = StyleSheet.create({
     resizeMode: 'cover',
     marginRight: metrics.padding,
   },
+  imageText: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  buttonImage: {
+    width: 35,
+    height: 35,
+    resizeMode: 'cover',
+    backgroundColor: 'transparent',
+    marginRight: metrics.padding,
+  },
   textsContainer: {
     flex: 1,
     alignItems: 'flex-start',
