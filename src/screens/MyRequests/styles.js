@@ -42,6 +42,8 @@ export const styles = StyleSheet.create({
   title: {
     fontWeight: 'bold',
     fontSize: fonts.big,
+    color: colors.regular,
+    
   },
   shortDescription: {
     marginTop: 5,

@@ -41,6 +41,7 @@ class PeopleShuffleListScreen extends Component {
                 <Text style={[styles.title, ]}>{ 'Que tal orar por alguém que você não conhece?' }</Text>
                 <Carousel
                   data={ usersShuffleList }
+                  layout={'default'}
                   renderItem={this._renderItem.bind(this)}
                   sliderWidth={sliderWidth}
                   itemWidth={itemWidth}

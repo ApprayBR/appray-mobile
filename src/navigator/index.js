@@ -40,7 +40,7 @@ const MainNavigator =  TabNavigator ({
         },
         {   
             navigationOptions: {
-                headerTitle: 'Lista de Pedidos',
+                headerTitle: 'Pedidos de Oração',
                 title: 'Pedidos',
                 tabBarIcon: ({ tintColor, focused }) => (
                     <Ionicons
@@ -74,9 +74,6 @@ const MainNavigator =  TabNavigator ({
             },
             PeopleShuffleDetail: {
                 screen: PeopleShuffleDetailScreen
-            },
-            PeopleProfile: {
-                screen: PeopleProfileScreen
             },
         },
         {   
@@ -157,6 +154,9 @@ const MainNavigator =  TabNavigator ({
         screen: StackNavigator({
             MyProfile: {
                 screen: MyProfileScreen
+            },
+            MyProfileRecordings: {
+                screen: MyProfileScreen  // TODO: Build this screen
             },
         },
         {

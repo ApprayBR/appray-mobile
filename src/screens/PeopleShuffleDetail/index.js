@@ -6,9 +6,14 @@ import { connect } from 'react-redux';
 
 import { styles, nav_styles } from './styles';
 import { logout } from 'appray/src/actions/login';
-import UserPrayerRequestsList from 'appray/src/components/presentational/UserPrayerRequestsList';
+import AudioPlayerRecorder from 'appray/src/components/presentational/AudioPlayerRecorder';
+import SliderEntry from 'appray/src/components/presentational/SliderEntry';
 
 class PeopleShuffleDetailScreen extends Component {
+    static navigationOptions = {
+        headerTitle: 'Ore',
+    };
+
     componentDidMount() {
     };
 
@@ -18,7 +23,12 @@ class PeopleShuffleDetailScreen extends Component {
         
         return (
             <View style={ styles.container }>
-                <Text>Send a Prayer for { user.full_name }</Text>
+                <View>
+                    <SliderEntry data={ user } />
+                </View>
+                <View>
+                    <AudioPlayerRecorder />
+                </View>
             </View>
                
         );

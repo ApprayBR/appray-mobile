@@ -17,6 +17,7 @@ export const styles = StyleSheet.create({
     backgroundColor: 'transparent',
   },
   actionsCountText: {
-
+    fontSize: fonts.smaller,
+    color: colors.regular,
   },
 });

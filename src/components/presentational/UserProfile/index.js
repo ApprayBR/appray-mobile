@@ -21,8 +21,8 @@ class UserProfile extends Component {
 
     render() {
         const { navigation, isMyProfile, logout, getUserFromAPI, userProfile, myUserProfile } = this.props;
-        user = isMyProfile ? myUserProfile : userProfile
-        
+        const user = isMyProfile ? myUserProfile : userProfile
+
         if (isMyProfile) {
 
             return (
@@ -55,6 +55,15 @@ class UserProfile extends Component {
                     
                     <View style={styles.bottom}>
                         <View style={ styles.logout }>
+                            <TouchableOpacity onPress={ () => navigation.navigate('MyProfileRecordings', {'user': user}) }>
+                                <View style={ [styles.logoutContainer, styles.imageText] }>
+                                    <Image
+                                        style={ styles.buttonImage }
+                                        source={ require('appray/src/resources/images/list_icon.png') }
+                                    />
+                                    <Text style={styles.logoutText}>Ver Orações</Text>
+                                </View>
+                            </TouchableOpacity>
                             <TouchableOpacity onPress={ () => logout(navigation, 'Login') }>
                                 <View style={ [styles.logoutContainer, styles.imageText] }>
                                     <Image

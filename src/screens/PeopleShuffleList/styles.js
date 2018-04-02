@@ -1,11 +1,6 @@
 import { StyleSheet } from 'react-native';
 
-export const colors = {
-    black: '#1a1917',
-    gray: '#888888',
-    background1: '#B721FF',
-    background2: '#21D4FD'
-};
+import { colors, fonts, metrics } from 'appray/src/styles';
 
 export default StyleSheet.create({
     safeArea: {
@@ -32,10 +27,9 @@ export default StyleSheet.create({
         backgroundColor: 'transparent',
         fontSize: 20,
         fontWeight: 'bold',
-        textAlign: 'center'
+        textAlign: 'center',
     },
     titleDark: {
-        color: colors.black
     },
     subtitle: {
         marginTop: 5,
@@ -44,7 +38,8 @@ export default StyleSheet.create({
         color: 'rgba(255, 255, 255, 0.75)',
         fontSize: 13,
         fontStyle: 'italic',
-        textAlign: 'center'
+        textAlign: 'center',
+        color: colors.regular,
     },
     slider: {
         marginTop: 15,

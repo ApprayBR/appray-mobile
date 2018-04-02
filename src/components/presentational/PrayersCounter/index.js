@@ -10,7 +10,7 @@ export default class PrayersCounter extends Component {
         return (
             <View style={ styles.actions }>
                 <Image style={ styles.actionsImage } source={ require('appray/src/resources/images/pray_icon.png') } />
-                <Text style={ styles.actionsCountText }> { prayersCount || 0 } </Text>
+                <Text style={ styles.actionsCountText }> { prayersCount || 0 } pessoas oraram por isso </Text>
             </View>
         );
     };

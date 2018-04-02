@@ -32,6 +32,7 @@ class MyRecordingsScreen extends Component {
       
       return (
         <View style={styles.container}>
+          <Text style={ styles.title } > Orações recebidas neste pedido de {request.type}: </Text>
           <FlatList
             style={ styles.list }
             data={ myPrayerRequestRecordings }
