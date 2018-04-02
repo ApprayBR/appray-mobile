@@ -38,6 +38,12 @@ const styles = StyleSheet.create({
   title: {
     fontWeight: 'bold',
     fontSize: fonts.big,
+    marginBottom: 5,
+  },
+  typeTitle: {
+    fontWeight: 'bold',
+    fontSize: fonts.regular,
+    marginBottom: 5,
   },
   descriptionContainer:{
   },

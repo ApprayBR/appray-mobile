@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 
 import { styles, nav_styles } from './styles';
 import { getStaticImageByName } from 'appray/src/utils';
+import PrayersCounter from 'appray/src/components/presentational/PrayersCounter';
 
 export default class UserPrayerRequestsList extends Component {
     render() {
@@ -30,6 +31,7 @@ export default class UserPrayerRequestsList extends Component {
                                         source={ IMAGES[item.type] }/>
                                     <Text style={ styles.title }> { item.type } </Text> 
                                     <Text style={ styles.description }> { item.short_description }</Text>
+                                    <PrayersCounter prayersCount={ item.prayers_count }  />
                                 </View>
                             </View>
                         </TouchableOpacity>

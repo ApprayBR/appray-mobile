@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { ActivityIndicator, View, FlatList, Text, Image, TouchableOpacity } from 'react-native';
-import { getStaticImageByName } from 'appray/src/utils';
 
 import styles from './styles';
+import { getStaticImageByName } from 'appray/src/utils';
+import PrayersCounter from 'appray/src/components/presentational/PrayersCounter';
 
 export default class PrayerRequestsList extends Component {
     render() {
@@ -36,13 +37,15 @@ export default class PrayerRequestsList extends Component {
               <View style={ styles.row }>
                 <Image source={{ uri: item.image }}  style={ styles.image } /> 
                 <View style={ styles.textsContainer }>
+                  <Text style={ styles.title }> { item.user_name }</Text>
                   <View style={ styles.titleContainer }>
                     <Image
                       style={ styles.requestImage }
                       source={ IMAGES[item.type] }/>
-                    <Text style={ styles.title }> { item.type } </Text> 
+                    <Text style={ styles.typeTitle }> { item.type } </Text> 
                   </View>
                   <Text style={ styles.description }> { item.short_description }</Text>
+                  <PrayersCounter prayersCount={ item.prayers_count }  />
                 </View>
               </View>
             </TouchableOpacity>

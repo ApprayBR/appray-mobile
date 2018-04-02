@@ -5,22 +5,25 @@ import { connect } from 'react-redux';
 import { addNavigationHelpers, TabNavigator, StackNavigator, Platform } from 'react-navigation';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-import InitScreen from 'appray/src/scenes/Init';
-import LoginScreen from 'appray/src/scenes/Login';
-import SignupScreen from 'appray/src/scenes/Signup';
-import SignupEmailScreen from 'appray/src/scenes/SignupEmail';
-import HomeScreen from 'appray/src/scenes/Home';
-import MyProfileScreen from 'appray/src/scenes/Profile/MyProfile';
-import MyPrayerRequestsScreen from 'appray/src/scenes/MyRequests';
-import MyNewPrayerRequestScreen from 'appray/src/scenes/MyNewRequests';
-import PeopleProfileScreen from 'appray/src/scenes/Profile/PeopleProfile';
-import PrayerRequestDetailScreen from 'appray/src/scenes/PrayerRequestDetail';
-import RecordingScreen from 'appray/src/scenes/Recording';
-import MyRecordingsScreen from 'appray/src/scenes/MyRecordings';
+import InitScreen from 'appray/src/screens/Init';
+import LoginScreen from 'appray/src/screens/Login';
+import SignupScreen from 'appray/src/screens/Signup';
+import SignupEmailScreen from 'appray/src/screens/SignupEmail';
+import HomeScreen from 'appray/src/screens/Home';
+import MyProfileScreen from 'appray/src/screens/Profile/MyProfile';
+import MyPrayerRequestsScreen from 'appray/src/screens/MyRequests';
+import MyNewPrayerRequestScreen from 'appray/src/screens/MyNewRequests';
+import PeopleProfileScreen from 'appray/src/screens/Profile/PeopleProfile';
+import PrayerRequestDetailScreen from 'appray/src/screens/PrayerRequestDetail';
+import RecordingScreen from 'appray/src/screens/Recording';
+import MyRecordingsScreen from 'appray/src/screens/MyRecordings';
+import PeopleShuffleListScreen from 'appray/src/screens/PeopleShuffleList';
+import PeopleShuffleDetailScreen from 'appray/src/screens/PeopleShuffleDetail';
+
 import { metrics, colors } from 'appray/src/styles';
 
 const MainNavigator =  TabNavigator ({
-    People: {
+    PeopleRequests: {
         screen: StackNavigator({
             PeoplePrayerRequestsList: {
                 screen: HomeScreen
@@ -38,6 +41,47 @@ const MainNavigator =  TabNavigator ({
         {   
             navigationOptions: {
                 headerTitle: 'Lista de Pedidos',
+                title: 'Pedidos',
+                tabBarIcon: ({ tintColor, focused }) => (
+                    <Ionicons
+                        name={focused ? 'ios-list-outline' : 'ios-list-outline'}
+                        size={26}
+                        style={{ color: tintColor }}
+                    />
+                ),
+                headerStyle: {
+                    height: metrics.headerHeight,
+                    paddingTop: metrics.headerPadding,
+                    backgroundColor: colors.primary,
+                },
+                headerTitleStyle: {
+                    marginTop: metrics.headerPadding,
+                    color: 'white',
+                    alignSelf: 'center',
+ 					textAlign:'center',
+                },
+                headerBackTitleStyle: {
+                    color: 'white',
+                },
+            }
+            
+        }),
+    },
+    People: {
+        screen: StackNavigator({
+            PeopleShuffleList: {
+                screen: PeopleShuffleListScreen
+            },
+            PeopleShuffleDetail: {
+                screen: PeopleShuffleDetailScreen
+            },
+            PeopleProfile: {
+                screen: PeopleProfileScreen
+            },
+        },
+        {   
+            navigationOptions: {
+                headerTitle: 'Pessoas',
                 title: 'Pessoas',
                 tabBarIcon: ({ tintColor, focused }) => (
                     <Ionicons
@@ -64,7 +108,8 @@ const MainNavigator =  TabNavigator ({
             
         }),
     },
-    Requests: {
+    
+    MyRequests: {
         screen: StackNavigator({
             MyPrayerRequestsList: {
                 screen: MyPrayerRequestsScreen

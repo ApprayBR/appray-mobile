@@ -38,6 +38,7 @@
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		8D5EC9C920180A1000694387 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 00E356F11AD99517003FC87E /* Info.plist */; };
 		8D5EC9CA20180A1100694387 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 00E356F11AD99517003FC87E /* Info.plist */; };
+		8D70957C206D953400A1937B /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB61A68108700A75B9A /* Info.plist */; };
 		8D7C5207201FF577008E4699 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D7C5203201FF577008E4699 /* FBSDKCoreKit.framework */; };
 		8D7C5208201FF577008E4699 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D7C5204201FF577008E4699 /* FBSDKLoginKit.framework */; };
 		8D7C5209201FF577008E4699 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D7C5205201FF577008E4699 /* Bolts.framework */; };
@@ -912,7 +913,7 @@
 			projectRoot = "";
 			targets = (
 				13B07F861A680F5B00A75B9A /* appray */,
-				00E356ED1AD99517003FC87E /* appray */,
+				00E356ED1AD99517003FC87E /* apprayTests */,
 				2D02E47A1E0B4A5D006451C7 /* appray-tvOS */,
 				2D02E48F1E0B4A5D006451C7 /* appray-tvOSTests */,
 			);
@@ -1209,6 +1210,7 @@
 				8DB5D81D2017EEDE00D5900B /* Ionicons.ttf in Resources */,
 				8D5EC9C920180A1000694387 /* Info.plist in Resources */,
 				8DB5D8212017EEDE00D5900B /* SimpleLineIcons.ttf in Resources */,
+				8D70957C206D953400A1937B /* Info.plist in Resources */,
 				8DB5D8192017EEDE00D5900B /* EvilIcons.ttf in Resources */,
 				8DB5D81A2017EEDE00D5900B /* Feather.ttf in Resources */,
 				8DB5D8182017EEDE00D5900B /* Entypo.ttf in Resources */,

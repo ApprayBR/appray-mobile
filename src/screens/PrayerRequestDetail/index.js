@@ -76,6 +76,7 @@ export default class  PrayerRequestDetailScreen extends Component {
             </TouchableOpacity>
             <View style={ styles.textsContainer }>
               <View style={ styles.titleDescription }>
+                <Text style={ styles.title }> { request.user_name } </Text>
                 <View style={ styles.titleContainer }>
                   <Image
                     style={ styles.requestImage }

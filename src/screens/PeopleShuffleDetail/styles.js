@@ -43,22 +43,52 @@ export const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: fonts.big,
   },
+  shortDescription: {
+    marginTop: 5,
+  },
+  bottom: {
+    marginTop: metrics.padding,
+    marginLeft: metrics.padding,
+    height: '60%',
+  },
   description: {
-    marginVertical: metrics.padding,
+    margin: metrics.padding,
   },
   requestsContainer: {
-    marginTop: metrics.padding,
-    marginRight: metrics.padding,
-  },
-  row: {
-    margin: 5,
-    borderBottomWidth: 1,
-    borderColor: colors.light,
+    marginTop: 20,
   },
   requestImage: {
     width: 50,
     height: 50,
     resizeMode: 'cover',
     backgroundColor: 'transparent',
+  },
+  addNew: {
+    marginTop: metrics.padding,
+    backgroundColor: 'transparent',
+    alignItems: 'center',
+    
+  },
+  addTextContainer: {
+    marginTop: 10,
+    paddingTop: 20,
+    paddingBottom: 20,
+    backgroundColor: colors.primary,
+    borderRadius: 10,
+    width: 200,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  addText: {
+    textAlign: 'center',
+    alignItems: 'center',
+    color: 'white',
+    fontWeight: 'bold',
+  },
+  addImage: {
+    width: 30,
+    height: 30,
+    marginRight: metrics.padding,
   },
 });
