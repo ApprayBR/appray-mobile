@@ -23,13 +23,20 @@ export default class MyRecordings extends Component {
       var title = '';
 
       if (isMyProfile) {
-        title = 'Orações recebidas para o meu Perfil'
+        title = 'Orações recebidas para o meu Perfil:'
+        if (!myRecordings || myRecordings.lenght === 0) {
+            title = 'Você ainda não recebeu orações no seu Perfil'
+        }
       } else {
-        title = 'Orações recebidas neste pedido de ' + prayerRequest.type
+        title = 'Orações recebidas neste pedido de ' + prayerRequest.type + ':'
+        if (!myRecordings || myRecordings.lenght === 0) {
+            title = 'Você ainda não recebeu orações neste Pedido'
+        }
       }
+
       return (
         <View style={styles.container}>
-          <Text style={ styles.title } > { title }: </Text>
+          <Text style={ styles.title } > { title } </Text>
           <FlatList
             style={ styles.list }
             data={ myRecordings }

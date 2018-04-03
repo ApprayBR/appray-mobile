@@ -13,7 +13,7 @@ import {
     SET_RECORDINGS_FOR_MY_PROFILE,
 } from 'appray/src/actions/types';  
 
-import { APPRAY_API_PRAYER_REQUETS_URL, APPRAY_API_MY_RECORDINGS_URL } from 'appray/src/settings';
+import { APPRAY_API_PRAYER_REQUETS_URL, APPRAY_API_MY_PRAYER_REQUEST_RECORDINGS_URL, APPRAY_API_MY_PROFILE_RECORDINGS_URL } from 'appray/src/settings';
 import { 
     requestFetchDataSuccess, 
     requestHasErrored, 
@@ -29,7 +29,8 @@ const initialState = {
     hasErrored: false,
     type_filter: "",
     page: 0,
-    myPrayerRequestRecordings: {},
+    myPrayerRequestRecordings: [],
+    myProfileRecordings: [],
 }
 export default function prayerRequestReducer(state=initialState, action) {
     switch (action.type) {
@@ -96,7 +97,7 @@ export default function prayerRequestReducer(state=initialState, action) {
             }
         case GET_RECORDINGS_FOR_MY_PRAYER_REQUEST:
             const prayerRequestId = action.prayerRequestId
-            url = APPRAY_API_MY_RECORDINGS_URL + '?request=' + prayerRequestId
+            url = APPRAY_API_MY_PRAYER_REQUEST_RECORDINGS_URL + '?request=' + prayerRequestId
             
             axios.get(url)
             .then((response) => {
@@ -121,7 +122,7 @@ export default function prayerRequestReducer(state=initialState, action) {
             };
         case GET_RECORDINGS_FOR_MY_PROFILE:
             const userId = action.userId
-            url = APPRAY_API_MY_RECORDINGS_URL + '?user_id=' + userId
+            url = APPRAY_API_MY_PROFILE_RECORDINGS_URL + '?user_id=' + userId
             
             axios.get(url)
             .then((response) => {
