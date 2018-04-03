@@ -10,7 +10,9 @@ import AudioPlayerRecorder from 'appray/src/components/presentational/AudioPlaye
 import { getHelpfulVersesFromAPI } from 'appray/src/actions/verses';
 
 class RecordingScreen extends Component {
-
+    static navigationOptions = {
+      headerTitle: 'Ore Pelo Pedido',
+    };
     componentWillMount() {
       this.props.getHelpfulVersesFromAPI(this.props.navigation.state.params.request.type);
     }

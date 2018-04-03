@@ -11,12 +11,10 @@ import UserPrayerRequestsList from 'appray/src/components/presentational/UserPra
 
 class UserProfile extends Component {
     static navigationOptions = ({navigation}) => ({
-        headerTitle: navigation.state.params.headerTitle,
     });
 
     componentDidMount() {
         this.props.getUserFromAPI(this.props.userId);
-        this.props.navigation.setParams({headerTitle: this.props.userProfile ? this.props.userProfile.name + '\'s Profile' : ''});
     };
 
     render() {

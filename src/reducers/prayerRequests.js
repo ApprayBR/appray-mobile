@@ -9,10 +9,18 @@ import {
     GET_NEXT_PRAYER_REQUESTS_PAGE_FROM_API,
     GET_RECORDINGS_FOR_MY_PRAYER_REQUEST,
     SET_RECORDINGS_FOR_MY_PRAYER_REQUEST,
+    GET_RECORDINGS_FOR_MY_PROFILE,
+    SET_RECORDINGS_FOR_MY_PROFILE,
 } from 'appray/src/actions/types';  
 
 import { APPRAY_API_PRAYER_REQUETS_URL, APPRAY_API_MY_RECORDINGS_URL } from 'appray/src/settings';
-import { requestFetchDataSuccess, requestHasErrored, requestIsLoading, getRecordingsForMyPrayerRequest, setRecordingsForPrayerRequest } from 'appray/src/actions/prayerRequests';
+import { 
+    requestFetchDataSuccess, 
+    requestHasErrored, 
+    requestIsLoading, 
+    setRecordingsForPrayerRequest, 
+    setRecordingsForProfile,
+} from 'appray/src/actions/prayerRequests';
 
 const initialState = {
     isLoading: true,
@@ -110,6 +118,31 @@ export default function prayerRequestReducer(state=initialState, action) {
             return {
                 ...state,
                 myPrayerRequestRecordings: action.prayerRequestRecordings,
+            };
+        case GET_RECORDINGS_FOR_MY_PROFILE:
+            const userId = action.userId
+            url = APPRAY_API_MY_RECORDINGS_URL + '?user_id=' + userId
+            
+            axios.get(url)
+            .then((response) => {
+                if (!response.status === 200) {
+                    throw Error(`An error occurred while requesting the API. Status: ${response.statusText}. Body: ${response.text()}`);
+                }
+                if (response.data) {
+                    action.dispatcher(setRecordingsForProfile(response.data));
+                }
+            })
+            .catch((error) => {
+                Reactotron.error(error);
+                action.dispatcher(requestHasErrored(true));
+            });
+
+            return state
+
+        case SET_RECORDINGS_FOR_MY_PROFILE:
+            return {
+                ...state,
+                myProfileRecordings: action.profileRecordings,
             };
         default:
             return state;

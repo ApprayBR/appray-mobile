@@ -16,7 +16,8 @@ import MyNewPrayerRequestScreen from 'appray/src/screens/MyNewRequests';
 import PeopleProfileScreen from 'appray/src/screens/Profile/PeopleProfile';
 import PrayerRequestDetailScreen from 'appray/src/screens/PrayerRequestDetail';
 import RecordingScreen from 'appray/src/screens/Recording';
-import MyRecordingsScreen from 'appray/src/screens/MyRecordings';
+import MyPrayerRequestRecordingsScreen from 'appray/src/screens/MyRecordings/MyPrayerRequestRecordings';
+import MyProfileRecordingsScreen from 'appray/src/screens/MyRecordings/MyProfileRecordings';
 import PeopleShuffleListScreen from 'appray/src/screens/PeopleShuffleList';
 import PeopleShuffleDetailScreen from 'appray/src/screens/PeopleShuffleDetail';
 
@@ -118,7 +119,7 @@ const MainNavigator =  TabNavigator ({
                 screen: MyNewPrayerRequestScreen
             },
             MyPrayerRequestRecording: {
-                screen: MyRecordingsScreen
+                screen: MyPrayerRequestRecordingsScreen
             }
         },
         {
@@ -156,7 +157,7 @@ const MainNavigator =  TabNavigator ({
                 screen: MyProfileScreen
             },
             MyProfileRecordings: {
-                screen: MyProfileScreen  // TODO: Build this screen
+                screen: MyProfileRecordingsScreen
             },
         },
         {

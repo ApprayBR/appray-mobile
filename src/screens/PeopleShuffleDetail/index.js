@@ -11,7 +11,7 @@ import SliderEntry from 'appray/src/components/presentational/SliderEntry';
 
 class PeopleShuffleDetailScreen extends Component {
     static navigationOptions = {
-        headerTitle: 'Ore',
+        headerTitle: 'Ore Pela Pessoa',
     };
 
     componentDidMount() {

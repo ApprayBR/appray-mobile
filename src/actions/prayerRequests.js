@@ -7,6 +7,8 @@ import {
     GET_NEXT_PRAYER_REQUESTS_PAGE_FROM_API,
     GET_RECORDINGS_FOR_MY_PRAYER_REQUEST,
     SET_RECORDINGS_FOR_MY_PRAYER_REQUEST,
+    GET_RECORDINGS_FOR_MY_PROFILE,
+    SET_RECORDINGS_FOR_MY_PROFILE,
  } from './types';
 
 // Action creators:
@@ -60,6 +62,21 @@ export const setRecordingsForPrayerRequest = (prayerRequestRecordings) => {
     };
 }
 
+export const getRecordingsForProfile = (userId, dispatch) => {
+    return {
+        type: GET_RECORDINGS_FOR_MY_PROFILE,
+        dispatcher: dispatch,
+        userId,
+    };
+}
+
+export const setRecordingsForProfile = (profileRecordings) => {
+    return {
+        type: SET_RECORDINGS_FOR_MY_PROFILE,
+        profileRecordings,
+    };
+}
+
 // Thunks:
 export function fetchNextPrayerRequestsPageFromAPI() {
     return (dispatch) => {
@@ -75,9 +92,15 @@ export function filterPrayerRequestsByText(text) {
     };
 }
 
-
 export function getRecordingsForMyPrayerRequest(prayerRequestId) {
     return (dispatch) => {
         dispatch(getRecordingsForPrayerRequest(prayerRequestId, dispatch));
+    }
+}
+
+
+export function getRecordingsForMyProfile(userId) {
+    return (dispatch) => {
+        dispatch(getRecordingsForProfile(userId, dispatch));
     }
 }

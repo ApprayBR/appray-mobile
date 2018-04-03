@@ -9,33 +9,30 @@ import styles from './styles';
 import AudioPlayerRecorder from 'appray/src/components/presentational/AudioPlayerRecorder';
 import { getRecordingsForMyPrayerRequest } from 'appray/src/actions/prayerRequests';
 
-class MyRecordingsScreen extends Component {
-    static navigationOptions = {
-        headerTitle: 'Orações Recebidas',
-    };
-
-    componentWillMount() {
-      this.props.getRecordingsForMyPrayerRequest(this.props.navigation.state.params.request.id);
-    }
-
+export default class MyRecordings extends Component {
     downloadAndPlay(recording) {
-      alert("Ouvindo oração: " + recording.url);
+        alert("Ouvindo oração: " + recording.url);
     }
 
     delete(recording) {
-      alert("Deletando oração: " + recording.url);
+        alert("Deletando oração: " + recording.url);
     }
 
     render() {
-      const { myPrayerRequestRecordings } = this.props;
-      const { request } = this.props.navigation.state.params;
-      
+      const { myRecordings, isMyProfile, prayerRequest } = this.props;
+      var title = '';
+
+      if (isMyProfile) {
+        title = 'Orações recebidas para o meu Perfil'
+      } else {
+        title = 'Orações recebidas neste pedido de ' + prayerRequest.type
+      }
       return (
         <View style={styles.container}>
-          <Text style={ styles.title } > Orações recebidas neste pedido de {request.type}: </Text>
+          <Text style={ styles.title } > { title }: </Text>
           <FlatList
             style={ styles.list }
-            data={ myPrayerRequestRecordings }
+            data={ myRecordings }
             renderItem={ ({ item }) =>
               <View style={ styles.item }>
                 <View style={ styles.itemLeft }>
@@ -64,15 +61,3 @@ class MyRecordingsScreen extends Component {
       );
     }
   }
-
-const mapStateToProps = (state) => {
-  return {
-    myPrayerRequestRecordings: state.requests.myPrayerRequestRecordings,
-  };
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({ getRecordingsForMyPrayerRequest }, dispatch);
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(MyRecordingsScreen);
