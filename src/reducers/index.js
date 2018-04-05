@@ -7,6 +7,7 @@ import navigatorReducer from './navigator';
 import storageReducer from './storage';
 import userReducer from './user';
 import versesReducer from './verses';
+import categoriesReducer from './categories';
 
 const AppReducer = combineReducers({
     login: loginReducer,
@@ -15,6 +16,7 @@ const AppReducer = combineReducers({
     appStorage: storageReducer,
     user: userReducer,
     verses: versesReducer,
+    categories: categoriesReducer,
 });
 
 export default AppReducer;

@@ -31,6 +31,7 @@ const initialState = {
     page: 0,
     myPrayerRequestRecordings: [],
     myProfileRecordings: [],
+    myNewPrayerRequest: {},
 }
 export default function prayerRequestReducer(state=initialState, action) {
     switch (action.type) {
