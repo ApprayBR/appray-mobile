@@ -1,49 +1,75 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Button, StyleSheet, Text, TextInput, View, Image, TouchableHighlight, TouchableOpacity, FlatList, Picker } from 'react-native';
+import { Text, TextInput, View, Image, TouchableOpacity, Picker } from 'react-native';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import { styles, nav_styles } from './styles';
 import { logout } from 'appray/src/actions/login';
-import { getLoggedUserFromAPI } from 'appray/src/actions/user';
+import { getCategoriesFromAPI } from 'appray/src/actions/categories';
 import UserPrayerRequestsList from 'appray/src/components/presentational/UserPrayerRequestsList';
 
 class MyNewPrayerRequestsScreen extends Component {
     componentDidMount() {
-        // TODO: Get logged user ID from local Storage
-        this.props.getLoggedUserFromAPI(1);
+        this.props.getCategoriesFromAPI();
+    };
+
+    renderPickerItems() {
+        if (this.props.categories) {
+            let availableCategories = this.props.categories.map( item => {
+                return <Picker.Item key={item.id} value={item.id} label={item.description} />
+            });
+
+            return availableCategories
+        }
+        
+        return null;
     };
 
     render() {
-        const { navigation, logout, getLoggedUserFromAPI, myUserProfile, myNewPrayerRequest, categories } = this.props;
-        let availableCategories = categories.map( k => {
-            return <Picker.Item key={k} value={k} label={k} />
-        });
+        const { navigation, myUserProfile, myNewPrayerRequest } = this.props;
+        const { goBack } = navigation;
 
         return (
             <View style={ styles.container }>
-                <View style={ styles.categoryContainer }>
-                    <Picker
-                        onValueChange={ (itemValue, itemIndex) => alert('Update Redux myNewPrayerRequest.type') }
-                        selectedValue={ 0 }>
-                        <Picker.Item key="Enfermidade" value="Enfermidade" label="Enfermidade" />
-                        <Picker.Item key="Fé" value="Fé" label="Fé" />
-                        <Picker.Item key="Financeiro" value="Financeiro" label="Financeiro" />
-                        <Picker.Item key="Proteção" value="Proteção" label="Proteção" />
-                    </Picker>
+                <View style={ styles.categoryContainer }> 
+                    <Text style={ styles.title }>
+                        Categoria:
+                    </Text>
+                    <View style={ styles.pickerContainer }>
+                        <Picker
+                            onValueChange={ (itemValue, itemIndex) => alert('Update Redux myNewPrayerRequest.type to ' + itemValue) }
+                            selectedValue={ 0 }>
+                            
+                            { this.renderPickerItems() }
+
+                        </Picker>
+                    </View>
                 </View>
+                
                 <View style={ styles.shortContainer }>
-                    <Text>
-                        Resumo:
+                    <Text style={ styles.title }>
+                        Resumo (140 caracteres):
                     </Text>
                     <TextInput value={ myNewPrayerRequest.short_description } style={ styles.textInput } />
                 </View>
                 <View style={ styles.descriptionContainer }>
-                    <Text>
+                    <Text style={ styles.title }>
                         Descrição:
                     </Text>
-                    <TextInput value={ myNewPrayerRequest.description } style={ styles.textInputDescription } />
+                    <TextInput multiline={ true } value={ myNewPrayerRequest.description } style={ styles.textInputDescription } />
+                </View>
+
+                <View style={ styles.buttonContainer }>
+                    <TouchableOpacity onPress={ () => goBack() }>
+                        <View style={ [styles.buttonInnerContainer, ] }>
+                            <Image
+                                style={ styles.buttonImage }
+                                source={ require('appray/src/resources/images/paper_plane.png') }
+                            />
+                            <Text style={styles.buttonText}>Enviar Pedido</Text>
+                        </View>
+                    </TouchableOpacity>
                 </View>
             </View>
         );
@@ -59,7 +85,7 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({ logout, getLoggedUserFromAPI, }, dispatch);
+  return bindActionCreators({ getCategoriesFromAPI, }, dispatch);
 };
   
 export default connect(mapStateToProps, mapDispatchToProps)(MyNewPrayerRequestsScreen);

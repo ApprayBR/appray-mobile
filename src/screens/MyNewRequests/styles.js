@@ -12,13 +12,23 @@ export const styles = StyleSheet.create({
     marginVertical: metrics.padding,
   },
   categoryContainer: {
+    alignItems: 'center',
+  },
+  pickerContainer: {
     width: 300,
+    height: 200,
+    borderRadius: 5,
+    borderColor: colors.light,
+    borderWidth: 1,
   },
   shortContainer: {
     alignItems: 'center',
   },
   descriptionContainer: {
     alignItems: 'center',
+  },
+  title: {
+    fontStyle: 'italic',
   },
   textInput: {
     height: 45,
@@ -28,10 +38,37 @@ export const styles = StyleSheet.create({
     borderWidth: 1,
   },
   textInputDescription: {
-    height: 200,
+    height: 150,
     width: 300,
     borderRadius: 5,
     borderColor: colors.light,
     borderWidth: 1,
+  },
+  buttonContainer: {
+    alignItems: 'center',
+  },
+  buttonImage: {
+    width: 30,
+    height: 30,
+    resizeMode: 'cover',
+    backgroundColor: 'transparent',
+  },
+  buttonInnerContainer: {
+    marginTop: 10,
+    paddingTop: 20,
+    paddingBottom: 20,
+    backgroundColor: colors.primary,
+    borderRadius: 10,
+    width: 200,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  buttonText: {
+    textAlign: 'center',
+    alignItems: 'center',
+    color: 'white',
+    fontWeight: 'bold',
+    marginLeft: metrics.padding,
   },
 });

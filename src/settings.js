@@ -5,6 +5,7 @@ export const APPRAY_API_HELPFUL_VERSES_URL = 'http://www.mocky.io/v2/5abafc6b350
 export const APPRAY_API_MY_PRAYER_REQUEST_RECORDINGS_URL = 'http://www.mocky.io/v2/5abc324c2d000053009be01e';
 export const APPRAY_API_MY_PROFILE_RECORDINGS_URL = 'http://www.mocky.io/v2/5abc324c2d000053009be01e';
 export const APPRAY_API_USER_SHUFFLE_LIST_URL = 'http://www.mocky.io/v2/5ac161562f0000290096121f';
+export const APPRAY_API_CATEGORIES_URL = 'http://www.mocky.io/v2/5ac6d4864a00007e357e0849';
 
 export const FACEBOOK_APP = {
     ID: '370859849993011',
